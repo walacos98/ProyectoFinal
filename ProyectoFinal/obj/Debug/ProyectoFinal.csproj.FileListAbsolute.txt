@@ -1,0 +1,11 @@
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.AssemblyReference.cache
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmLogin.resources
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPrincipal.resources
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.cache
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.CoreCompileInputs.cache
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
