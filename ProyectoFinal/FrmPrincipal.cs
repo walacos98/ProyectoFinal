@@ -17,9 +17,10 @@ namespace ProyectoFinal
             InitializeComponent();
         }
 
+        //Boton para salir del formulario en el MenuStripPrincipal...
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
     }
 }
