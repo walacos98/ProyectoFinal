@@ -37,7 +37,7 @@ namespace ProyectoFinal
                 {
                     MessageBox.Show(string.Format("Bienvenido {0}...", user));
                     this.Hide();
-                    FrmPrincipal Fp = new FrmPrincipal();
+                    Principal Fp = new Principal();
                     Fp.Show();
                 }
                 else
