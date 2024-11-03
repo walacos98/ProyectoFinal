@@ -9,8 +9,8 @@ namespace ProyectoFinal.Clases
     class Empleados
     {
         //Creacion de variables o atributos...
-        string Carnet, Nombre, Apellido;
-        int IdUsuario, Tipo;
+        string Carnet, Nombre, Apellido, Tipo;
+        int IdUsuario;
 
         //Constructor sin argumentos...
         public Empleados()
@@ -19,7 +19,7 @@ namespace ProyectoFinal.Clases
         }
 
         //Constructor con argumentos..
-        public Empleados(string carnet, string nombre, string apellido, int idUsuario, int tipo)
+        public Empleados(string carnet, string nombre, string apellido, int idUsuario, string tipo)
         {
             Carnet = carnet;
             Nombre = nombre;
@@ -50,7 +50,7 @@ namespace ProyectoFinal.Clases
             get { return IdUsuario; }
             set { IdUsuario = value; }
         }
-        public int tipo
+        public string tipo
         {
             get { return Tipo; }
             set { Tipo = value; }

@@ -20,31 +20,37 @@ namespace ProyectoFinal
         //Boton para mostrar el formularios de clientes...
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmClientes Fr = new FrmClientes();
-            Fr.MdiParent = this;
-            Fr.Show();
+            FrmClientes Clientes = new FrmClientes();
+            Clientes.MdiParent = this;
+            Clientes.Show();
         }
 
         //Boton para salir de la aplicacion...
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         //Boton para cerrar sesion...
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmLogin fr = new FrmLogin();
-            fr.Show();
+            FrmLogin Login = new FrmLogin();
+            Login.Show();
         }
 
         //Boton para mostrar el formulario de los empleados...
         private void BtnEmpleados_Click(object sender, EventArgs e)
         {
-            FrmEmpleados Fr = new FrmEmpleados();
-            Fr.MdiParent = this;
-            Fr.Show();
+            FrmEmpleados Empleados = new FrmEmpleados();
+            Empleados.MdiParent = this;
+            Empleados.Show();
+        }
+
+        //Boton para mostar el formulario de Usuarios...
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,16 +14,19 @@ namespace ProyectoFinal.Clases
         //Variable que almacena la contraseña del usuario...
         private string Pass;
 
+        private int IdUsuario;
+
         public Usuarios()
         {
             //Constructor sin argumentos...
         }
 
-        public Usuarios(string user, string pass)
+        public Usuarios(string user, string pass, int idUsuario)
         {
             //Constructor con argumentos...
             this.User = user;
             this.Pass = pass;
+            this.IdUsuario = idUsuario;
         }
 
         //Metodos accesores...
@@ -37,6 +40,12 @@ namespace ProyectoFinal.Clases
         {
             get { return Pass; }
             set { Pass = value; }
+        }
+
+        public int idUsuario
+        {
+            get { return IdUsuario; }
+            set { IdUsuario = value; }
         }
     }
 }

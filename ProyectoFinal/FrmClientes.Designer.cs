@@ -37,18 +37,13 @@ namespace ProyectoFinal
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.TxtApellido = new System.Windows.Forms.TextBox();
             this.ComboProducto = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvClientes = new System.Windows.Forms.DataGridView();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // LblDui
@@ -131,45 +126,16 @@ namespace ProyectoFinal
             this.ComboProducto.Size = new System.Drawing.Size(199, 24);
             this.ComboProducto.TabIndex = 7;
             // 
-            // dataGridView1
+            // DgvClientes
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DUI,
-            this.Nombre,
-            this.Apellido,
-            this.Producto});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 215);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(498, 223);
-            this.dataGridView1.TabIndex = 8;
-            // 
-            // DUI
-            // 
-            this.DUI.HeaderText = "ColumnDui";
-            this.DUI.Name = "DUI";
-            this.DUI.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "ColumnNombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "ColumnApellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "ColumnProducto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
+            this.DgvClientes.AllowUserToAddRows = false;
+            this.DgvClientes.AllowUserToDeleteRows = false;
+            this.DgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvClientes.Location = new System.Drawing.Point(13, 215);
+            this.DgvClientes.Name = "DgvClientes";
+            this.DgvClientes.ReadOnly = true;
+            this.DgvClientes.Size = new System.Drawing.Size(498, 223);
+            this.DgvClientes.TabIndex = 8;
             // 
             // BtnAgregar
             // 
@@ -181,6 +147,7 @@ namespace ProyectoFinal
             this.BtnAgregar.TabIndex = 9;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnEliminar
             // 
@@ -191,6 +158,7 @@ namespace ProyectoFinal
             this.BtnEliminar.TabIndex = 10;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnBuscar
             // 
@@ -201,6 +169,7 @@ namespace ProyectoFinal
             this.BtnBuscar.TabIndex = 11;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // BtnLimpiar
             // 
@@ -211,21 +180,12 @@ namespace ProyectoFinal
             this.BtnLimpiar.TabIndex = 12;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.Location = new System.Drawing.Point(312, 156);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(77, 33);
-            this.BtnModificar.TabIndex = 13;
-            this.BtnModificar.Text = "Modificar";
-            this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnSalir
             // 
             this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalir.Location = new System.Drawing.Point(432, 156);
+            this.BtnSalir.Location = new System.Drawing.Point(374, 156);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(77, 33);
             this.BtnSalir.TabIndex = 14;
@@ -239,12 +199,11 @@ namespace ProyectoFinal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 450);
             this.Controls.Add(this.BtnSalir);
-            this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvClientes);
             this.Controls.Add(this.ComboProducto);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.TxtNombre);
@@ -258,7 +217,7 @@ namespace ProyectoFinal
             this.Name = "FrmClientes";
             this.Text = "Clientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,16 +233,11 @@ namespace ProyectoFinal
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.TextBox TxtApellido;
         private System.Windows.Forms.ComboBox ComboProducto;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DUI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridView DgvClientes;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Button BtnLimpiar;
-        private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnSalir;
     }
 }

@@ -11,3 +11,17 @@ D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmClientes.resources
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmEmpleados.resources
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Principal.resources
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\MySql.Data.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\Google.Protobuf.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\Zstandard.Net.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\BouncyCastle.Crypto.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\Ubiety.Dns.Core.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\System.Memory.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\System.Buffers.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\K4os.Compression.LZ4.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\K4os.Hash.xxHash.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\System.Numerics.Vectors.dll
+D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\MySql.Data.xml
+D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.CopyComplete

@@ -36,6 +36,7 @@ namespace ProyectoFinal
             this.BtnEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,8 @@ namespace ProyectoFinal
             // 
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtnClientes,
-            this.BtnEmpleados});
+            this.BtnEmpleados,
+            this.BtnUsuarios});
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
             this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
@@ -95,6 +97,13 @@ namespace ProyectoFinal
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // BtnUsuarios
+            // 
+            this.BtnUsuarios.Name = "BtnUsuarios";
+            this.BtnUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.BtnUsuarios.Text = "Usuarios";
+            this.BtnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,5 +133,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.ToolStripMenuItem BtnEmpleados;
         private System.Windows.Forms.ToolStripMenuItem BtnCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem BtnSalir;
+        private System.Windows.Forms.ToolStripMenuItem BtnUsuarios;
     }
 }
