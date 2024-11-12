@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace ProyectoFinal
 {
-    public partial class FrmClientes : Form
+    public partial class FrmUsuarios : Form
     {
         //Agregando la clase Conexion...
         static private Clases.Conexion Con = new Clases.Conexion();
@@ -23,24 +23,29 @@ namespace ProyectoFinal
         //Creando instancia para conecion de base de datos...
         static MySqlConnection ConexionBD = new MySqlConnection(Cadena);
 
-        public FrmClientes()
+        public FrmUsuarios()
         {
             InitializeComponent();
             LeerBD();
         }
-        
-        //Metodo para limpiar los textBox...
-        private void LimpiarTexts()
+
+        //Metodo para limpiar TextBox...
+        public void LimpiarTexts()
         {
-            TxtDui.Clear();
-            TxtNombre.Clear();
-            TxtApellido.Clear();
-            ComboProducto.Text = "";
-            TxtDui.Focus();
+            TxtUsuario.Clear();
+            TxtPass.Clear();
+            TxtUsuario.Focus();
         }
 
-        //Metodo para Leer los datos de la Base de Datos...
-        private void LeerBD()
+        //Metodo para limpiar el grid...
+        private void LimpiarGrid()
+        {
+            DgvUsuarios.Rows.Clear();
+            DgvUsuarios.Refresh();
+        }
+
+        //Metodo para cargar leer Base
+        public void LeerBD()
         {
             //Inicializar nueva consulta con MySqlCommand...
             MySqlCommand Consulta = new MySqlCommand();
@@ -48,7 +53,7 @@ namespace ProyectoFinal
             ConexionBD.Open();
 
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Select DUICliente, NombresCliente, ApellidosCliente, Productos From clientes;";
+            Consulta.CommandText = "Select Usuario, ContraseñaUsuario, TipoEmpleado From usuarios";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -56,9 +61,9 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                DgvClientes.DataSource = Tabla;
+                DgvUsuarios.DataSource = Tabla;
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
                 MessageBox.Show("Error al cargar la base\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -68,32 +73,25 @@ namespace ProyectoFinal
             }
         }
 
-        //Metodo para limpiar el grid...
-        private void LimpiarGrid()
-        {
-            DgvClientes.Rows.Clear();
-            DgvClientes.Refresh();
-        }
-
-        //Programacion del boton Salir...
+        //Boton para salir del formulario...
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //Boton para limpiar...
+        //Boton para limpiar los text...
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarTexts();
         }
 
-        //Boton para agregar Clientes...
+        //Boton para agregar usuarios nuevos...
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             MySqlCommand Consulta = new MySqlCommand();
             ConexionBD.Open();
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Insert into clientes (DUICliente, NombresCliente, ApellidosCliente, Productos, IdTransaccion) values ('"+TxtDui.Text+ "','"+TxtNombre.Text+ "','"+TxtApellido.Text+ "','"+ComboProducto.Text+"',NULL)";
+            Consulta.CommandText = "Insert into usuarios (Usuario, ContraseñaUsuario, TipoEmpleado) values ('" + TxtUsuario.Text + "','" + TxtPass.Text + "', '" + ComboTipo.Text + "')";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -101,15 +99,15 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                Consulta.CommandText = "Select DUICliente, NombresCliente, ApellidosCliente, Productos From clientes";
+                Consulta.CommandText = "Select Usuario, ContraseñaUsuario, TipoEmpleado From usuarios";
                 AdaptadorMysql.Fill(Tabla);
-                DgvClientes.DataSource = Tabla;
+                DgvUsuarios.DataSource = Tabla;
                 LimpiarTexts();
                 MessageBox.Show("Agregado exitosamente!...");
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show("Error al ingresar el cliente\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al ingresar el usuario\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -117,15 +115,15 @@ namespace ProyectoFinal
             }
         }
 
-        //Boton para eliminar los Clientes...
+        //Boton para eliminar usarios...
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            string Id = Convert.ToString(DgvClientes.CurrentRow.Cells["DUICliente"].Value);
+            string User = Convert.ToString(DgvUsuarios.CurrentRow.Cells["Usuario"].Value);
 
             MySqlCommand Consulta = new MySqlCommand();
             ConexionBD.Open();
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Delete From clientes where DUICliente = '" + Id + "'";
+            Consulta.CommandText = "Delete From usuarios where Usuario = '" + User + "'";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -133,16 +131,16 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                MessageBox.Show("Cliente eliminado con exito...");
+                MessageBox.Show("Usuario eliminado con exito...");
                 LimpiarTexts();
                 //Se consulta nuevamente...
-                Consulta.CommandText = "Select DUICliente, NombresCliente, ApellidosCliente, Productos From clientes";
+                Consulta.CommandText = "Select Usuario, ContraseñaUsuario, TipoEmpleado From usuarios";
                 AdaptadorMysql.Fill(Tabla);
-                DgvClientes.DataSource = Tabla;
+                DgvUsuarios.DataSource = Tabla;
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error al eliminar el cliente\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar el Usuario\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -150,16 +148,16 @@ namespace ProyectoFinal
             }
         }
 
-        //Boton para buscar cliente con numero de DUI...
+        //Boton para buscar por medio del usuario...
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             MySqlCommand Consulta = new MySqlCommand();
             //Abrimos conexion...
             ConexionBD.Open();
 
-            string Id = TxtDui.Text;
+            string User = TxtUsuario.Text;
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Select DUICliente, NombresCliente, ApellidosCliente, Productos From clientes where DUICliente = '" + Id + "'";
+            Consulta.CommandText = "Select Usuario, ContraseñaUsuario, TipoEmpleado From usuarios where Usuario = '" + User + "'";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -167,7 +165,7 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                DgvClientes.DataSource = Tabla;
+                DgvUsuarios.DataSource = Tabla;
             }
             catch (Exception Ex)
             {
@@ -176,27 +174,6 @@ namespace ProyectoFinal
             finally
             {
                 ConexionBD.Close();
-            }
-        }
-
-        //Validaciones...
-        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void TxtApellido_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Handled = true;
-                return;
             }
         }
     }

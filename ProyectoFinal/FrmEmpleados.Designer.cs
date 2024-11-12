@@ -32,11 +32,9 @@ namespace ProyectoFinal
             this.LblCarnet = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.LblApellido = new System.Windows.Forms.Label();
-            this.LblTipo = new System.Windows.Forms.Label();
             this.TxtCarnet = new System.Windows.Forms.TextBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.TxtApellido = new System.Windows.Forms.TextBox();
-            this.ComboTipo = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -76,16 +74,6 @@ namespace ProyectoFinal
             this.LblApellido.TabIndex = 3;
             this.LblApellido.Text = "Apellido";
             // 
-            // LblTipo
-            // 
-            this.LblTipo.AutoSize = true;
-            this.LblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipo.Location = new System.Drawing.Point(12, 182);
-            this.LblTipo.Name = "LblTipo";
-            this.LblTipo.Size = new System.Drawing.Size(36, 16);
-            this.LblTipo.TabIndex = 5;
-            this.LblTipo.Text = "Tipo";
-            // 
             // TxtCarnet
             // 
             this.TxtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +89,7 @@ namespace ProyectoFinal
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(199, 22);
             this.TxtNombre.TabIndex = 7;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // TxtApellido
             // 
@@ -109,18 +98,7 @@ namespace ProyectoFinal
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.Size = new System.Drawing.Size(199, 22);
             this.TxtApellido.TabIndex = 8;
-            // 
-            // ComboTipo
-            // 
-            this.ComboTipo.FormattingEnabled = true;
-            this.ComboTipo.Items.AddRange(new object[] {
-            "Cajero",
-            "Asesor",
-            "Gerente"});
-            this.ComboTipo.Location = new System.Drawing.Point(106, 181);
-            this.ComboTipo.Name = "ComboTipo";
-            this.ComboTipo.Size = new System.Drawing.Size(121, 21);
-            this.ComboTipo.TabIndex = 10;
+            this.TxtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtApellido_KeyPress);
             // 
             // BtnSalir
             // 
@@ -183,7 +161,7 @@ namespace ProyectoFinal
             this.DgvEmpleados.AllowUserToAddRows = false;
             this.DgvEmpleados.AllowUserToDeleteRows = false;
             this.DgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvEmpleados.Location = new System.Drawing.Point(15, 264);
+            this.DgvEmpleados.Location = new System.Drawing.Point(16, 208);
             this.DgvEmpleados.Name = "DgvEmpleados";
             this.DgvEmpleados.ReadOnly = true;
             this.DgvEmpleados.Size = new System.Drawing.Size(558, 294);
@@ -193,18 +171,16 @@ namespace ProyectoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 570);
+            this.ClientSize = new System.Drawing.Size(586, 522);
             this.Controls.Add(this.DgvEmpleados);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.ComboTipo);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtCarnet);
-            this.Controls.Add(this.LblTipo);
             this.Controls.Add(this.LblApellido);
             this.Controls.Add(this.LblNombre);
             this.Controls.Add(this.LblCarnet);
@@ -224,11 +200,9 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label LblCarnet;
         private System.Windows.Forms.Label LblNombre;
         private System.Windows.Forms.Label LblApellido;
-        private System.Windows.Forms.Label LblTipo;
         private System.Windows.Forms.TextBox TxtCarnet;
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.TextBox TxtApellido;
-        private System.Windows.Forms.ComboBox ComboTipo;
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnBuscar;

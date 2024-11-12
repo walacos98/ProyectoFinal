@@ -13,10 +13,17 @@ namespace ProyectoFinal
     public partial class Principal : Form
     {
         public Principal()
-        {
+        {            
             InitializeComponent();
+            ValidarUsuario();
         }
 
+        //Funcion para validar los tipos de usuarios...
+        public void ValidarUsuario()
+        {
+            Clases.Usuarios Usuario = new Clases.Usuarios();
+            MessageBox.Show(Usuario.tipo);
+        }
         //Boton para mostrar el formularios de clientes...
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -50,7 +57,17 @@ namespace ProyectoFinal
         //Boton para mostar el formulario de Usuarios...
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
+            FrmUsuarios Usuarios = new FrmUsuarios();
+            Usuarios.MdiParent = this;
+            Usuarios.Show();
+        }
 
+        //Boton para mostrar el formulario de las Transacciones...
+        private void BtnTransacciones_Click(object sender, EventArgs e)
+        {
+            FrmTransacciones Transacciones = new FrmTransacciones();
+            Transacciones.MdiParent = this;
+            Transacciones.Show();
         }
     }
 }

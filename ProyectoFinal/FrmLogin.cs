@@ -7,11 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//Agregando MySQL para uso de la base...
+using MySql.Data.MySqlClient;
 
 namespace ProyectoFinal
 {
     public partial class FrmLogin : Form
     {
+        //Agregando la clase Conexion...
+        static private Clases.Conexion Con = new Clases.Conexion();
+
+        //Asignando la cadena de conexion...
+        static string Cadena = "Database = " + Con.bd + "; Data Source =" + Con.server + " ; User Id =" + Con.user + " ; Password = " + Con.pass;
+
+        //Creando instancia para conecion de base de datos...
+        static MySqlConnection ConexionBD = new MySqlConnection(Cadena);
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -25,32 +36,44 @@ namespace ProyectoFinal
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            //Creamos y asignamos las variables user y pass
-            string user, pass;
-            //Usuario
-            user = TxtUser.Text.TrimEnd();
-            //Contraseña
-            pass = TxtPass.Text.TrimEnd();
+            //Abrimos conexion...
+            ConexionBD.Open();
+            //Inicializar nueva consulta con MySqlCommand...
+            MySqlCommand Consulta = new MySqlCommand();
+            Clases.Usuarios Usuario = new Clases.Usuarios();
+
+            string user = TxtUser.Text;
+            string pass = TxtPass.Text;
+
+            Consulta.Connection = ConexionBD;
+            Consulta.CommandText = "Select * From usuarios Where Usuario = '" + user + "' and ContraseñaUsuario = '" + pass + "';";
             try
             {
-                if (user == "AA23053" && pass == "123456")
+                //Leemos la consulta y la asigmanos a la variable Lector...
+                MySqlDataReader Lector = Consulta.ExecuteReader();
+                if (Lector.Read())
                 {
-                    MessageBox.Show(string.Format("Bienvenido {0}...", user));
+                    MessageBox.Show("Bienvenido " + Lector.GetValue(0));
+                    Usuario.tipo = Lector.GetString(2);
                     this.Hide();
-                    Principal Fp = new Principal();
-                    Fp.Show();
+                    Principal Form = new Principal();
+                    Form.Show();
                 }
                 else
                 {
                     MessageBox.Show("Usuario o contraseña incorrertos...\n\nIntente de nuevo...");
                     TxtUser.Text = "";
                     TxtPass.Text = "";
+                    TxtUser.Focus();
                 }
             }
-            catch (Exception Ex)
+            catch(Exception Ex)
             {
-
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Error\n\n" + Ex);
+            }
+            finally
+            {
+                ConexionBD.Close();
             }
         }
     }

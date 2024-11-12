@@ -101,6 +101,7 @@ namespace ProyectoFinal
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(199, 22);
             this.TxtNombre.TabIndex = 5;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // TxtApellido
             // 
@@ -109,9 +110,11 @@ namespace ProyectoFinal
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.Size = new System.Drawing.Size(199, 22);
             this.TxtApellido.TabIndex = 6;
+            this.TxtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtApellido_KeyPress);
             // 
             // ComboProducto
             // 
+            this.ComboProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboProducto.Items.AddRange(new object[] {
             "Cuenta de Ahorro",

@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace ProyectoFinal
 {
-    public partial class FrmEmpleados : Form
+    public partial class FrmTransacciones : Form
     {
         //Agregando la clase Conexion...
         static private Clases.Conexion Con = new Clases.Conexion();
@@ -23,76 +23,52 @@ namespace ProyectoFinal
         //Creando instancia para conecion de base de datos...
         static MySqlConnection ConexionBD = new MySqlConnection(Cadena);
 
-        public FrmEmpleados()
+        public FrmTransacciones()
         {
             InitializeComponent();
-            LeerBD();
-        }
-
-        //Metodo para Leer los datos de la Base de Datos...
-        private void LeerBD()
-        {
-            //Inicializar nueva consulta con MySqlCommand...
-            MySqlCommand Consulta = new MySqlCommand();
-            //Abrimos conexion...
-            ConexionBD.Open();
-
-            Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Select * From empleados";
-            try
-            {
-                //Inicializamos nueva instancia de la clase MySqlDataAdapter...
-                MySqlDataAdapter AdaptadorMysql = new MySqlDataAdapter();
-                AdaptadorMysql.SelectCommand = Consulta;
-                DataTable Tabla = new DataTable();
-                AdaptadorMysql.Fill(Tabla);
-                DgvEmpleados.DataSource = Tabla;
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show("Error al cargar la base\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                ConexionBD.Close();
-            }
         }
 
         //Metodo para limpiar los textBox...
         private void LimpiarTexts()
         {
-            TxtCarnet.Clear();
+            TxtNumTransaccion.Clear();
             TxtNombre.Clear();
             TxtApellido.Clear();
-            TxtCarnet.Focus();
+            TxtMonto.Clear();
+            TxtFecha.Clear();
+            ComboTipo.Text = "";
+            TxtDescripcion.Clear();
+            TxtNombre.Focus();
         }
 
         //Metodo para limpiar el grid...
         private void LimpiarGrid()
         {
-            DgvEmpleados.Rows.Clear();
-            DgvEmpleados.Refresh();
+            DgvTransacciones.Rows.Clear();
+            DgvTransacciones.Refresh();
         }
 
-        //Boton para cerrar formulario...
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //Boton para limpiar...
+        //Boton para lipmpiar los Texts...
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarTexts();
+            LimpiarGrid();
         }
 
-        //Boton para agregar Empleados...
+        //Boton para salir del Formulario...
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Boton para agregar la transaccion...
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             MySqlCommand Consulta = new MySqlCommand();
             ConexionBD.Open();
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Insert into empleados (Carnet, NombresEmpleado, ApellidosEmpleado) values ('" + TxtCarnet.Text + "','" + TxtNombre.Text + "','" + TxtApellido.Text + "')";
+            Consulta.CommandText = "Insert into transaccion (NombreCliente, ApellidoCliente, Monto, FechaTransacción, TipoTransaccion, DescripcionTransacción)" +
+                "values ('" + TxtNombre.Text + "','" + TxtApellido.Text + "','" + double.Parse(TxtMonto.Text) + "', '" + TxtFecha.Text + "', '" + ComboTipo.Text + "','" + TxtDescripcion.Text + "');";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -100,15 +76,15 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                Consulta.CommandText = "Select * From empleados";
+                Consulta.CommandText = "Select * From transaccion";
                 AdaptadorMysql.Fill(Tabla);
-                DgvEmpleados.DataSource = Tabla;
+                DgvTransacciones.DataSource = Tabla;
                 LimpiarTexts();
                 MessageBox.Show("Agregado exitosamente!...");
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error al ingresar el empleado\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al ingresar la transaccion\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -116,49 +92,17 @@ namespace ProyectoFinal
             }
         }
 
-        //Boton para eliminar a los empleados...
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            string Carnet = Convert.ToString(DgvEmpleados.CurrentRow.Cells["Carnet"].Value);
-
-            MySqlCommand Consulta = new MySqlCommand();
-            ConexionBD.Open();
-            Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Delete From empleados where Carnet = '" + Carnet + "'";
-            try
-            {
-                //Inicializamos nueva instancia de la clase MySqlDataAdapter...
-                MySqlDataAdapter AdaptadorMysql = new MySqlDataAdapter();
-                AdaptadorMysql.SelectCommand = Consulta;
-                DataTable Tabla = new DataTable();
-                AdaptadorMysql.Fill(Tabla);
-                MessageBox.Show("Empleado eliminado con exito...");
-                LimpiarTexts();
-                //Se consulta nuevamente...
-                Consulta.CommandText = "Select * From empleados";
-                AdaptadorMysql.Fill(Tabla);
-                DgvEmpleados.DataSource = Tabla;
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show("Error al eliminar el empleado\n\n" + Ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                ConexionBD.Close();
-            }
-        }
-
-        //Boton para buscar empleado por medio del Carnet...
+        //Boton para buscar las transacciones desde el Cliente...
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             MySqlCommand Consulta = new MySqlCommand();
             //Abrimos conexion...
             ConexionBD.Open();
 
-            string Carnet = TxtCarnet.Text;
+            string NombreCliente = TxtNombre.Text;
+            string ApellidoCliente = TxtApellido.Text;
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Select * From empleados where Carnet = '" + Carnet + "'";
+            Consulta.CommandText = "Select * From transaccion where NombreCliente = '" + NombreCliente + "' And ApellidoCliente = '" + ApellidoCliente + "'";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -166,7 +110,7 @@ namespace ProyectoFinal
                 AdaptadorMysql.SelectCommand = Consulta;
                 DataTable Tabla = new DataTable();
                 AdaptadorMysql.Fill(Tabla);
-                DgvEmpleados.DataSource = Tabla;
+                DgvTransacciones.DataSource = Tabla;
             }
             catch (Exception Ex)
             {
@@ -178,6 +122,7 @@ namespace ProyectoFinal
             }
         }
 
+        //Validaciones...
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
@@ -197,5 +142,25 @@ namespace ProyectoFinal
                 return;
             }
         }
-    }   
+
+        private void TxtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+    }
 }
