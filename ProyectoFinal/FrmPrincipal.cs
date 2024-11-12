@@ -22,7 +22,32 @@ namespace ProyectoFinal
         public void ValidarUsuario()
         {
             Clases.Usuarios Usuario = new Clases.Usuarios();
-            MessageBox.Show(Usuario.tipo);
+            switch (Usuario.tipo)
+            {
+                case "Gerente":
+                    break;
+                case "Cajero":
+                    BtnMantenimiento.Enabled = false;
+                    BtnMantenimiento.Visible = false;
+                    break;
+                case "Asesor":
+                    BtnEmpleados.Enabled = false;
+                    BtnUsuarios.Enabled = false;
+                    BtnEmpleados.Visible = false;
+                    BtnUsuarios.Visible = false;
+                    break;
+                case "Atencion al Cliente":
+                    BtnTransacciones.Enabled = false;
+                    BtnTransacciones.Visible = false;
+                    BtnEmpleados.Enabled = false;
+                    BtnUsuarios.Enabled = false;
+                    BtnEmpleados.Visible = false;
+                    BtnUsuarios.Visible = false;
+                    break;
+                default:
+                    MessageBox.Show("No se ha agregado un tipo de Usuario...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
         }
         //Boton para mostrar el formularios de clientes...
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)

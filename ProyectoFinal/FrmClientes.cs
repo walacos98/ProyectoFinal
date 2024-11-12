@@ -27,8 +27,20 @@ namespace ProyectoFinal
         {
             InitializeComponent();
             LeerBD();
+            ValidarUsuario();
         }
-        
+
+        //funcion para validar usuario...
+        public void ValidarUsuario()
+        {
+            //Creando instancia para la clases Usuarios...
+            Clases.Usuarios Usuario = new Clases.Usuarios();
+            if (Usuario.tipo == "Asesor" || Usuario.tipo == "Atencion al Cliente")
+            {
+                BtnEliminar.Enabled = false;
+            }
+        }
+
         //Metodo para limpiar los textBox...
         private void LimpiarTexts()
         {
