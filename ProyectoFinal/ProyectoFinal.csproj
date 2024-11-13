@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Cookies.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
@@ -88,18 +89,6 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipalAsesor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrincipalAsesor.Designer.cs">
-      <DependentUpon>FrmPrincipalAsesor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPrincipalAtenCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrincipalAtenCliente.Designer.cs">
-      <DependentUpon>FrmPrincipalAtenCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmTransacciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,12 +100,6 @@
     </Compile>
     <Compile Include="FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPrincipalCajero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrincipalCajero.Designer.cs">
-      <DependentUpon>FrmPrincipalCajero.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,20 +115,11 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipalAsesor.resx">
-      <DependentUpon>FrmPrincipalAsesor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipalAtenCliente.resx">
-      <DependentUpon>FrmPrincipalAtenCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmTransacciones.resx">
       <DependentUpon>FrmTransacciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipalCajero.resx">
-      <DependentUpon>FrmPrincipalCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

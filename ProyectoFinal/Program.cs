@@ -8,6 +8,7 @@ namespace ProyectoFinal
 {
     static class Program
     {
+        public static Clases.Cookies Cookie;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -35,7 +35,7 @@ namespace ProyectoFinal
         {
             //Creando instancia para la clases Usuarios...
             Clases.Usuarios Usuario = new Clases.Usuarios();
-            if (Usuario.tipo == "Asesor" || Usuario.tipo == "Atencion al Cliente")
+            if (Program.Cookie.Tipo == "Asesor" || Program.Cookie.Tipo == "Atencion al Cliente")
             {
                 BtnEliminar.Enabled = false;
             }

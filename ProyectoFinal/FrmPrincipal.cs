@@ -21,8 +21,7 @@ namespace ProyectoFinal
         //Funcion para validar los tipos de usuarios...
         public void ValidarUsuario()
         {
-            Clases.Usuarios Usuario = new Clases.Usuarios();
-            switch (Usuario.tipo)
+            switch (Program.Cookie.Tipo)
             {
                 case "Gerente":
                     break;
@@ -48,6 +47,7 @@ namespace ProyectoFinal
                     MessageBox.Show("No se ha agregado un tipo de Usuario...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
+            MessageBox.Show(Program.Cookie.Tipo);
         }
         //Boton para mostrar el formularios de clientes...
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace ProyectoFinal
         //Boton para salir de la aplicacion...
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         //Boton para cerrar sesion...
@@ -69,6 +69,7 @@ namespace ProyectoFinal
             this.Close();
             FrmLogin Login = new FrmLogin();
             Login.Show();
+            Program.Cookie.Tipo = "";
         }
 
         //Boton para mostrar el formulario de los empleados...

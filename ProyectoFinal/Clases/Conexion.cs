@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-
-namespace ProyectoFinal.Clases
+﻿namespace ProyectoFinal.Clases
 {
     class Conexion
     {
@@ -14,11 +7,11 @@ namespace ProyectoFinal.Clases
         string BD = "acoemprendedores";
         string User = "root";
         string Pass = "root";
-        
+
         //Constructor sin argumentos...
         public Conexion()
         {
-            
+
         }
 
         //Constructor con argumentos...

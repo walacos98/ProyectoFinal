@@ -74,9 +74,10 @@ namespace ProyectoFinal
             this.TxtPass.Location = new System.Drawing.Point(163, 380);
             this.TxtPass.Multiline = true;
             this.TxtPass.Name = "TxtPass";
-            this.TxtPass.PasswordChar = '*';
             this.TxtPass.Size = new System.Drawing.Size(100, 20);
             this.TxtPass.TabIndex = 3;
+            this.TxtPass.UseSystemPasswordChar = true;
+            this.TxtPass.WordWrap = false;
             // 
             // BtnIngresar
             // 

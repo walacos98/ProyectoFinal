@@ -27,6 +27,3 @@ D:\source\repos\ProyectoFinal\ProyectoFinal\bin\Debug\MySql.Data.xml
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.CopyComplete
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmUsuarios.resources
 D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmTransacciones.resources
-D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPrincipalAsesor.resources
-D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPrincipalAtenCliente.resources
-D:\source\repos\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPrincipalCajero.resources
