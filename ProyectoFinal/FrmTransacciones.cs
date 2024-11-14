@@ -41,18 +41,10 @@ namespace ProyectoFinal
             TxtNombre.Focus();
         }
 
-        //Metodo para limpiar el grid...
-        private void LimpiarGrid()
-        {
-            DgvTransacciones.Rows.Clear();
-            DgvTransacciones.Refresh();
-        }
-
         //Boton para lipmpiar los Texts...
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarTexts();
-            LimpiarGrid();
         }
 
         //Boton para salir del Formulario...

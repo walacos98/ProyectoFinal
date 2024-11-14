@@ -61,17 +61,10 @@ namespace ProyectoFinal
         //Metodo para limpiar los textBox...
         private void LimpiarTexts()
         {
-            TxtCarnet.Clear();
+            TxtUsuario.Clear();
             TxtNombre.Clear();
             TxtApellido.Clear();
-            TxtCarnet.Focus();
-        }
-
-        //Metodo para limpiar el grid...
-        private void LimpiarGrid()
-        {
-            DgvEmpleados.Rows.Clear();
-            DgvEmpleados.Refresh();
+            TxtNombre.Focus();
         }
 
         //Boton para cerrar formulario...
@@ -92,7 +85,7 @@ namespace ProyectoFinal
             MySqlCommand Consulta = new MySqlCommand();
             ConexionBD.Open();
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Insert into empleados (Carnet, NombresEmpleado, ApellidosEmpleado) values ('" + TxtCarnet.Text + "','" + TxtNombre.Text + "','" + TxtApellido.Text + "')";
+            Consulta.CommandText = "Insert into empleados (NombresEmpleado, ApellidosEmpleado, Usuario) values ('" + TxtNombre.Text + "','" + TxtApellido.Text + "','" + TxtUsuario.Text + "')";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -119,12 +112,12 @@ namespace ProyectoFinal
         //Boton para eliminar a los empleados...
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            string Carnet = Convert.ToString(DgvEmpleados.CurrentRow.Cells["Carnet"].Value);
+            string Usuario = Convert.ToString(DgvEmpleados.CurrentRow.Cells["Usuario"].Value);
 
             MySqlCommand Consulta = new MySqlCommand();
             ConexionBD.Open();
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Delete From empleados where Carnet = '" + Carnet + "'";
+            Consulta.CommandText = "Delete From empleados where Usuario = '" + Usuario + "'";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...
@@ -156,9 +149,9 @@ namespace ProyectoFinal
             //Abrimos conexion...
             ConexionBD.Open();
 
-            string Carnet = TxtCarnet.Text;
+            string Usuario = TxtUsuario.Text;
             Consulta.Connection = ConexionBD;
-            Consulta.CommandText = "Select * From empleados where Carnet = '" + Carnet + "'";
+            Consulta.CommandText = "Select * From empleados where Usuario = '" + Usuario + "'";
             try
             {
                 //Inicializamos nueva instancia de la clase MySqlDataAdapter...

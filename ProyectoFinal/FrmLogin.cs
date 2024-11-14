@@ -65,7 +65,7 @@ namespace ProyectoFinal
                     //Inicializar formulario principal
                     this.Hide();
                     Principal Form = new Principal();
-                    Form.ShowDialog();
+                    Form.Show();
                 }
                 else
                 {

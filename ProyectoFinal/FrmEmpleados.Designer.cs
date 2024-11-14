@@ -29,10 +29,8 @@ namespace ProyectoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblCarnet = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.LblApellido = new System.Windows.Forms.Label();
-            this.TxtCarnet = new System.Windows.Forms.TextBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.TxtApellido = new System.Windows.Forms.TextBox();
             this.BtnSalir = new System.Windows.Forms.Button();
@@ -41,24 +39,16 @@ namespace ProyectoFinal
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.DgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.TxtUsuario = new System.Windows.Forms.TextBox();
+            this.LblUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmpleados)).BeginInit();
             this.SuspendLayout();
-            // 
-            // LblCarnet
-            // 
-            this.LblCarnet.AutoSize = true;
-            this.LblCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCarnet.Location = new System.Drawing.Point(12, 30);
-            this.LblCarnet.Name = "LblCarnet";
-            this.LblCarnet.Size = new System.Drawing.Size(47, 16);
-            this.LblCarnet.TabIndex = 1;
-            this.LblCarnet.Text = "Carnet";
             // 
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
             this.LblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(12, 79);
+            this.LblNombre.Location = new System.Drawing.Point(13, 35);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(57, 16);
             this.LblNombre.TabIndex = 2;
@@ -68,24 +58,16 @@ namespace ProyectoFinal
             // 
             this.LblApellido.AutoSize = true;
             this.LblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApellido.Location = new System.Drawing.Point(12, 132);
+            this.LblApellido.Location = new System.Drawing.Point(13, 88);
             this.LblApellido.Name = "LblApellido";
             this.LblApellido.Size = new System.Drawing.Size(58, 16);
             this.LblApellido.TabIndex = 3;
             this.LblApellido.Text = "Apellido";
             // 
-            // TxtCarnet
-            // 
-            this.TxtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCarnet.Location = new System.Drawing.Point(106, 27);
-            this.TxtCarnet.Name = "TxtCarnet";
-            this.TxtCarnet.Size = new System.Drawing.Size(100, 22);
-            this.TxtCarnet.TabIndex = 6;
-            // 
             // TxtNombre
             // 
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.Location = new System.Drawing.Point(106, 73);
+            this.TxtNombre.Location = new System.Drawing.Point(107, 29);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(199, 22);
             this.TxtNombre.TabIndex = 7;
@@ -94,7 +76,7 @@ namespace ProyectoFinal
             // TxtApellido
             // 
             this.TxtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtApellido.Location = new System.Drawing.Point(106, 126);
+            this.TxtApellido.Location = new System.Drawing.Point(107, 82);
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.Size = new System.Drawing.Size(199, 22);
             this.TxtApellido.TabIndex = 8;
@@ -167,11 +149,31 @@ namespace ProyectoFinal
             this.DgvEmpleados.Size = new System.Drawing.Size(558, 294);
             this.DgvEmpleados.TabIndex = 21;
             // 
+            // TxtUsuario
+            // 
+            this.TxtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUsuario.Location = new System.Drawing.Point(107, 135);
+            this.TxtUsuario.Name = "TxtUsuario";
+            this.TxtUsuario.Size = new System.Drawing.Size(133, 22);
+            this.TxtUsuario.TabIndex = 23;
+            // 
+            // LblUsuario
+            // 
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.Location = new System.Drawing.Point(13, 141);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(55, 16);
+            this.LblUsuario.TabIndex = 22;
+            this.LblUsuario.Text = "Usuario";
+            // 
             // FrmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 522);
+            this.Controls.Add(this.TxtUsuario);
+            this.Controls.Add(this.LblUsuario);
             this.Controls.Add(this.DgvEmpleados);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnLimpiar);
@@ -180,10 +182,8 @@ namespace ProyectoFinal
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.TxtCarnet);
             this.Controls.Add(this.LblApellido);
             this.Controls.Add(this.LblNombre);
-            this.Controls.Add(this.LblCarnet);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmEmpleados";
@@ -196,11 +196,8 @@ namespace ProyectoFinal
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblCarnet;
         private System.Windows.Forms.Label LblNombre;
         private System.Windows.Forms.Label LblApellido;
-        private System.Windows.Forms.TextBox TxtCarnet;
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.TextBox TxtApellido;
         private System.Windows.Forms.Button BtnSalir;
@@ -209,5 +206,7 @@ namespace ProyectoFinal
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.DataGridView DgvEmpleados;
+        private System.Windows.Forms.TextBox TxtUsuario;
+        private System.Windows.Forms.Label LblUsuario;
     }
 }
